@@ -83,5 +83,12 @@ else
     mkdir /wildfly/provided_modules
     cp -r modules/* /wildfly/provided_modules
   fi
+  
+  if [ -d $local_source_dir/.niogit ]; then
+    echo "Copying nio git files..."
+    cp -r .niogit /wildfly/bin
+  fi
+  
+  
   echo "...done"
 fi
