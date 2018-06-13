@@ -159,7 +159,7 @@
                     </security>
                 </datasource>
                 <datasource jta="true" jndi-name="java:jboss/datasources/ProcessEnginePostgres" pool-name="ProcessEnginePostgres_Pool" enabled="true" use-java-context="true" use-ccm="true">
-                    <connection-url>jdbc:postgresql://52.77.218.172:5432/pomproengdev</connection-url>
+                    <connection-url>jdbc:postgresql://pomfretbpaas.cijy1fqbjw0r.us-east-1.rds.amazonaws.com:5432/pomproengdev</connection-url>
                     <driver>postgresql-jdbc4</driver>
                     <pool>
                         <min-pool-size>2</min-pool-size>
@@ -167,7 +167,7 @@
                         <prefill>true</prefill>
                     </pool>
                     <security>
-                        <user-name>postgres</user-name>
+                        <user-name>entosstech</user-name>
                         <password>EntossTech@123</password>
                     </security>
                     <validation>
@@ -178,7 +178,7 @@
                     </validation>
                 </datasource>
                 <datasource jta="true" jndi-name="java:jboss/datasources/actnowDS" pool-name="java:jboss/datasources/actnowDS_Pool" enabled="true" use-java-context="true" use-ccm="true">
-                    <connection-url>jdbc:postgresql://52.77.218.172:5432/pomactdev</connection-url>
+                    <connection-url>jdbc:postgresql://pomfretbpaas.cijy1fqbjw0r.us-east-1.rds.amazonaws.com:5432/pomactdev</connection-url>
                     <driver>postgresql-jdbc4</driver>
                     <pool>
                         <min-pool-size>2</min-pool-size>
@@ -186,7 +186,7 @@
                         <prefill>true</prefill>
                     </pool>
                     <security>
-                        <user-name>postgres</user-name>
+                        <user-name>entosstech</user-name>
                         <password>EntossTech@123</password>
                     </security>
                     <validation>
@@ -350,7 +350,7 @@
                 <smtp-server outbound-socket-binding-ref="mail-smtp"/>
             </mail-session>
 			<mail-session name="Gmail" jndi-name="java:/jboss/mail/gmail">
-				<smtp-server outbound-socket-binding-ref="mail-smtp" password="Singapore@321" username="support.pomfret@entosstech.com" ssl="true"/>
+				<smtp-server outbound-socket-binding-ref="gmail-smtp" password="Singapore@321" username="support.pomfret@entosstech.com" ssl="true"/>
 			</mail-session>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:naming:2.0">
@@ -530,6 +530,9 @@
         <socket-binding name="txn-status-manager" port="4713"/>
         <outbound-socket-binding name="mail-smtp">
             <remote-destination port="465" host="smtp.gmail.com"/>
+        </outbound-socket-binding>
+		<outbound-socket-binding name="gmail-smtp">
+            <remote-destination host="smtp.gmail.com" port="465"/>
         </outbound-socket-binding>
     </socket-binding-group>
 
